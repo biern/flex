@@ -9,7 +9,7 @@ try:
 except ImportError:
     from distutils.core import setup, find_packages
 
-version = '5.2.1'
+version = '5.2.1-wi'
 
 readme = open(os.path.join(DIR, 'README.md')).read()
 
@@ -33,6 +33,7 @@ setup(
         "requests>=2.4.3",
         "click>=3.3",
         "jsonpointer>=1.7",
+        "backport_collections==0.1"
     ],
     license="BSD",
     zip_safe=False,

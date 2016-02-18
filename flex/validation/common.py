@@ -4,6 +4,7 @@ import decimal
 import operator
 import functools
 import collections
+from backport_collections import Counter
 import itertools
 import json
 
@@ -243,7 +244,7 @@ def validate_unique_items(value, **kwargs):
     # we can't just look at the items themselves since 0 and False are treated
     # the same as dictionary keys, and objects aren't hashable.
 
-    counter = collections.Counter((
+    counter = Counter((
         json.dumps(v, sort_keys=True) for v in value
     ))
     dupes = [json.loads(v) for v, count in counter.items() if count > 1]
